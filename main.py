@@ -1,13 +1,7 @@
 # API import Section
 from fastapi import FastAPI
+from routers.router import Mistral
 
-# LLM section import
-from transformers import pipeline
-
-# IMPORTS FOR TEXT GENERATION CHAIN
-from langchain.llms import CTransformers
-from langchain import PromptTemplate, LLMChain
-import copy
 
 app = FastAPI(
     title="Inference API for Mistral-TB",
@@ -15,28 +9,18 @@ app = FastAPI(
     version="1.0",
 )
 
-### INITIALIZING MISTRAL -7B MODEL
-
-llm = CTransformers(
-        model="model/mistral-7b-v0.1.Q4_K_M.gguf",
-        model_type="mistral",
-        config={'max_new_tokens': 50,
-                'repetition_penalty': 1.1,
-                'temperature': 0.7,
-                'context_length': 70, })
-
-
-template = """{text}"""
-prompt = PromptTemplate(template=template, input_variables=["text"])
-chat = LLMChain(prompt=prompt, llm=llm)
-
+mistral_chatbot = Mistral()
 
 @app.get('/')
 async def hello():
-    return {"hello" : "Welcome to Mistral Chatbot"}
+    return {"hello": "Welcome to Mistral Chatbot"}
 
 @app.get('/mistral')
-async def mistral(question : str):
-    res = chat.run(question)
-    result = copy.deepcopy(res)
-    return {"result" : result}
+async def mistral(question: str):
+    result = mistral_chatbot.get_response(question)
+    return {"result": result}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(host="127.0.0.1", port=8000, app=app)
+
