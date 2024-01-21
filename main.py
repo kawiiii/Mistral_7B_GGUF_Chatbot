@@ -1,5 +1,6 @@
 # API import Section
 from fastapi import FastAPI
+from fastapi.responses import StreamingResponse
 from routers.router import Mistral
 
 
@@ -16,11 +17,10 @@ async def hello():
     return {"hello": "Welcome to Mistral Chatbot"}
 
 @app.get('/mistral')
-async def mistral(question: str):
-    result = mistral_chatbot.get_response(question)
-    return {"result": result}
+async def stream(query: str):
+    print(f'Query receieved: {query}')
+    return StreamingResponse(mistral_chatbot.response_generator(query), media_type='text/event-stream')
 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(host="127.0.0.1", port=8000, app=app)
-
