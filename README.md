@@ -47,7 +47,7 @@ The Mistral-7B model in this project benefits from model quantization to improve
 - **Max RAM Required:** 6.87 GB
 - **Use Case:** Medium, balanced quality - recommended
 
-In this project, [C Transformers library natively integrated with LangChain](library-link) is used that provides Python bindings for GGML models. The integration involves:
+In this project, [C Transformers library](https://python.langchain.com/docs/integrations/providers/ctransformers)  natively integrated with LangChain is used that provides Python bindings for GGML models. The integration involves:
 
 1. Instantiating a Model object
 2. Loading the GGUF file into it
