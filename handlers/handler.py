@@ -57,7 +57,7 @@ class MyCustomHandler(BaseCallbackHandler):
         latency = self._end_time - self._start_time
         print(f"Latency: {latency:.5f} seconds")
         print(f"Number of tokens: {self._num_tokens}")
-        avg_itl = sum(self._token_times) / self._num_tokens - 1
+        avg_itl = sum(self._token_times) / (self._num_tokens - 1)
         print(f"Average inter-token latency: {avg_itl:.5f} seconds")
         throughput = self._num_tokens / latency
         print(f"Throughput: {throughput:.2f} tokens/second")
