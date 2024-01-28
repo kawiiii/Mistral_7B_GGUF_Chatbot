@@ -52,12 +52,13 @@ def chat_interaction():
                     if chunk:
                         asstext += chunk.decode('utf-8')
                         message_placeholder.markdown(asstext, unsafe_allow_html=True)
-                        st.session_state.messages.append({"role": "assistant", "content": chunk.decode('utf-8')})
                 except requests.exceptions.ChunkedEncodingError as e:
                     print(f"Error in handling chunked response: {e}")
 
-
+            
+            st.session_state.messages.append({"role": "assistant", "content": asstext})
             write_history(asstext)
+            
 
 if __name__ == "__main__":
     setup_app()
