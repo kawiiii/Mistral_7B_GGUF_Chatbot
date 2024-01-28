@@ -12,10 +12,10 @@ class Mistral:
         self.llm = CTransformers(
             model="model/mistral-7b-v0.1.Q4_K_M.gguf",
             model_type="mistral",
-            config={'max_new_tokens': 256,
+            config={'max_new_tokens': 128,
                     'repetition_penalty': 1.1,
                     'temperature': 0.7,
-                    'context_length': 512,
+                    'context_length': 256,
                     'stream': True},
                     callbacks= [MyCustomHandler(self.streamer_queue)])
         
