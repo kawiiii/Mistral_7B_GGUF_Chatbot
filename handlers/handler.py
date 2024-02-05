@@ -53,8 +53,7 @@ class MyCustomHandler(BaseCallbackHandler):
 
     def on_llm_end(self, response: LLMResult, **kwargs: Any) -> None:
         """Run when LLM ends running."""
-        self._end_time = time.time()
-        latency = self._end_time - self._start_time
+        latency = self._last_token_time - self._first_token_time
         print(f"Latency: {latency:.5f} seconds")
         print(f"Number of tokens: {self._num_tokens}")
         avg_itl = sum(self._token_times) / (self._num_tokens - 1)

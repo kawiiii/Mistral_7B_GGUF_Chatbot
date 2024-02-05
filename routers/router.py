@@ -24,7 +24,7 @@ class Mistral:
         self.chat = LLMChain(prompt=prompt, llm=self.llm)
 
     def generate(self, query):
-        self.chat.run(query)
+        self.chat.invoke(query)
 
     def start_generation(self, query):
         thread = Thread(target=self.generate, args=(query,))
