@@ -16,7 +16,7 @@ class Mistral:
                     'repetition_penalty': 1.1,
                     'temperature': 0.7,
                     'stream': True,
-                    'gpu_layers':100},
+                    'gpu_layers':50},
                     callbacks= [MyCustomHandler(self.streamer_queue)])
         
         template = """<s>[INST] {prompt} [/INST]"""
