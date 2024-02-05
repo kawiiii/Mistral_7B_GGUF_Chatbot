@@ -39,4 +39,4 @@ class Mistral:
                 break
             yield value
             self.streamer_queue.task_done()
-            await asyncio.sleep(2)
+            await asyncio.sleep(0.1)
