@@ -15,11 +15,11 @@ class Mistral:
             config={'max_new_tokens': 128,
                     'repetition_penalty': 1.1,
                     'temperature': 0.7,
-                    'context_length': 256,
-                    'stream': True},
+                    'stream': True,
+                    'gpu_layers':100},
                     callbacks= [MyCustomHandler(self.streamer_queue)])
         
-        template = """{text}"""
+        template = """<s>[INST] {prompt} [/INST]"""
         prompt = PromptTemplate(template=template, input_variables=["text"])
         self.chat = LLMChain(prompt=prompt, llm=self.llm)
 
