@@ -15,7 +15,7 @@ def display_message(role, content, avatar):
 
 def setup_app():
     st.title("🤖 ChatBot")
-    st.subheader("Using Mistral 7-B")
+    st.subheader("Using Mistral 7-B Instruct")
     repo = "model/mistral-7b-v0.1.Q4_K_M.gguf"
 
     # Set a default model

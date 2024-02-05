@@ -10,7 +10,7 @@ class Mistral:
     def __init__(self):
         self.streamer_queue = Queue()
         self.llm = CTransformers(
-            model="model/mistral-7b-v0.1.Q4_K_M.gguf",
+            model="model/mistral-7b-instruct-v0.2.Q4_K_M.gguf",
             model_type="mistral",
             config={'max_new_tokens': 128,
                     'repetition_penalty': 1.1,

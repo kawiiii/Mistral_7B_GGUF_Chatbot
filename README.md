@@ -13,10 +13,14 @@ Follow these steps to set up and run the project:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/kawiiii/Mistral_7B_GGUF_Chatbot.git 
    cd your-repo
 
-2. Download the Mistral-7B model from [here](https://huggingface.co/TheBloke/Mistral-7B-v0.1-GGUF) and place it in the models folder.
+2. Download the Mistral-7B model using this command.
+
+   ```bash
+   mkdir -p model
+   wget https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/resolve/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf -O model/mistral-7b-instruct-v0.2.Q4_K_M.gguf
 
 3. Install dependencies:
 
@@ -38,9 +42,9 @@ Open your browser and navigate to http://localhost:8501 to interact with the Mis
 
 ### Model Quantization
 
-The Mistral-7B model in this project benefits from model quantization to improve efficiency. Quantization involves reducing the precision of numerical values in the model. For Mistral-7B, we use the GGUF quantized model with the following specifications:
+The Mistral-7B-Instruct model in this project benefits from model quantization to improve efficiency. Quantization involves reducing the precision of numerical values in the model. For Mistral-7B, we use the GGUF quantized model with the following specifications:
 
-- **Name:** mistral-7b-v0.1.Q4_K_M.gguf
+- **Name:** mistral-7b-instruct-v0.2.Q4_K_M.gguf
 - **Quantization Method:** Q4_K_M
 - **Bits:** 4
 - **Size:** 4.37 GB
