@@ -22,6 +22,9 @@ Follow these steps to set up and run the project:
    mkdir -p model
    wget https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/resolve/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf -O model/mistral-7b-instruct-v0.2.Q4_K_M.gguf
 
+Alternatively, you can download the model using a shell script download_model.sh. 
+
+
 3. Install dependencies:
 
    ```bash
@@ -33,6 +36,7 @@ Follow these steps to set up and run the project:
 
    ```bash
    uvicorn main:app --reload
+
 2. In a new terminal, run the Streamlit app:
 
    ```bash
