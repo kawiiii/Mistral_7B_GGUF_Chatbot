@@ -1,4 +1,4 @@
-# Mistral-7B Chatbot
+# Mistral-7B-Instruct Chatbot
 
 ![Mistral Chatbot](images/mistral.png)
 
